@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "pact": {
+      "commandName": "Project",
+      "commandLineArgs": "delete -name John -age 25"
+    }
+  }
+}

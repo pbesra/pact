@@ -1,0 +1,3 @@
+pact/obj/*
+pact/bin/*
+.vs
