@@ -10,5 +10,6 @@ namespace pact.Models
         public string Label { get; set; }
         public string Description { get; set; }
         public Func<Dictionary<string, string>, object> PerformAction { get; set; }
+        public Dictionary<string, string> ActionArgs { get; set; }
     }
 }

@@ -16,6 +16,12 @@ namespace pact.Configs
                 {
                     var fileServices=new FileSystemActionServices();
                     return fileServices.PerformDelete(args);
+                },
+                ActionArgs=new Dictionary<string, string>
+                {
+                    {"-path", null },
+                    {"-p", null },
+                    {"-pm", null },
                 }
             }
         };

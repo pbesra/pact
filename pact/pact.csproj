@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Validation\" />
     <Folder Include="PactUI\" />
   </ItemGroup>
 

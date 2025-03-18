@@ -1,5 +1,4 @@
-﻿
-namespace pact
+﻿namespace pact
 {
     public class Program
     {
@@ -11,9 +10,8 @@ namespace pact
                 return;
             }
 
-            var actionUnit = args[0];
             var argsMap = Utils.Utils.ParseOptions(args);
-            Console.WriteLine($"actionUnit={actionUnit}");
+            argsMap["action"] = args[0];
             Utils.Utils.Print(argsMap);
         }
     }
