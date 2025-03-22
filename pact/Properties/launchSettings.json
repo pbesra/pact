@@ -2,7 +2,7 @@
   "profiles": {
     "pact": {
       "commandName": "Project",
-      "commandLineArgs": "delete -name John -age 25"
+      "commandLineArgs": "delete -p \"C:\\Users\\i43909\\Downloads\\test-tools\\Process Premium-Output - DA.xml\""
     }
   }
 }

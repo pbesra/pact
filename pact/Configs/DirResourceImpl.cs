@@ -6,12 +6,23 @@ namespace pact.Configs
     {
         public bool Delete(ResourceType resourceType)
         {
-            if (resourceType.Permanent)
+            try
             {
-                Directory.Delete(resourceType.Path, true);
+                if (resourceType.Permanent)
+                {
+                    Directory.Delete(resourceType.Path, true);
+                    Console.WriteLine("Directory deleted permanently.");
+                    return true;
+                }
+                FileSystem.DeleteDirectory(resourceType.Path, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
+                Console.WriteLine("Directory deleted and sent to recycle bin.");
+                return true;
             }
-            FileSystem.DeleteDirectory(resourceType.Path, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
-            return true;
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
         }
     }
 }

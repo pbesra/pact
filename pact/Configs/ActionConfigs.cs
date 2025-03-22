@@ -17,11 +17,11 @@ namespace pact.Configs
                     var fileServices=new FileSystemActionServices();
                     return fileServices.PerformDelete(args);
                 },
-                ActionArgs=new Dictionary<string, string>
+                ActionArgs=new Dictionary<string, ActionArgDef>
                 {
-                    {"-path", null },
-                    {"-p", null },
-                    {"-pm", null },
+                    {"-path", new ActionArgDef{ Name="path", Value=null, Type=TypeCode.String, Set="path" } },
+                    {"-p", new ActionArgDef{ Name="path", Value=null, Type=TypeCode.String, Set="path" } },
+                    {"-pm", new ActionArgDef{ Name="permanent", Value=null, Type=TypeCode.Boolean } },
                 }
             }
         };

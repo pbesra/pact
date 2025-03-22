@@ -1,10 +1,11 @@
-﻿namespace pact
+﻿using pact.Services;
+
+namespace pact
 {
     public class Program
     {
         public static async Task Main(string[] args)
         {
-            Console.WriteLine("Test pact");
             if (args.Length == 0)
             {
                 return;
@@ -12,7 +13,23 @@
 
             var argsMap = Utils.Utils.ParseOptions(args);
             argsMap["action"] = args[0];
-            Utils.Utils.Print(argsMap);
+            var startUp = new StartUp();
+            await startUp.Start(argsMap);
+        }
+    }
+
+    public class StartUp
+    {
+        private readonly ActionServices _actionServices;
+
+        public StartUp()
+        {
+            _actionServices = new ActionServices();
+        }
+
+        public async Task Start(Dictionary<string, object> args)
+        {
+            await _actionServices.Start(args);
         }
     }
 }

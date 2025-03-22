@@ -1,26 +1,16 @@
 ﻿using pact.Configs;
+using pact.Models;
 
 namespace pact.Services
 {
     public class FileSystemActionServices
     {
-        public async Task<bool> PerformDelete(Dictionary<string, string> args)
+        public async Task<bool> PerformDelete(Dictionary<string, ActionArgDef> args)
         {
-            var action = args["action"];
-            var actionArgs = ActionConfigs.ActionUnits
-                .FirstOrDefault(x => x.Code.Equals(action, StringComparison.OrdinalIgnoreCase))
-                ?.ActionArgs;
-
-            // this should be part of validation.
-            var isValid = args?.Keys.Where(x => x != "action" && !actionArgs.ContainsKey(x));
-            if (isValid != null)
-            {
-                Console.WriteLine("Wrong command entered");
-            }
             var res = new ResourceType
             {
-                Path = args["-p"],
-                Permanent = args.ContainsKey("-pm")
+                Path = $@"{args["-p"].Value?.ToString() ?? args["-path"].Value?.ToString()}",
+                Permanent = args.ContainsKey("-pm"),
             };
             return await DeleteResource(res);
         }
