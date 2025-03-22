@@ -9,7 +9,7 @@ namespace pact.Models
         public string Code { get; set; }
         public string Label { get; set; }
         public string Description { get; set; }
-        public Func<Dictionary<string, ActionArgDef>, object> PerformAction { get; set; }
+        public Func<Dictionary<string, ActionArgDef>, Task<object>> PerformAction { get; set; }
         public Dictionary<string, ActionArgDef> ActionArgs { get; set; }
         
     }

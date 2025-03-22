@@ -1,3 +1,7 @@
 pact/obj/*
 pact/bin/*
 .vs
+pact.zip
+publish/*
+../publish/*
+publish
